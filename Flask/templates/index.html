@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../static/CSS/style.css">
+
+    <title>
+        Machine Learning Project
+    </title>
+</head>
+
+<body>
+    
+    <center><h1 id="Header"> Crop Recommendation Project </h1></center>
+
+
+
+    <div class="container">
+        <form action="{{url_for('predict')}}" method="post">
+            <h2 id="Note"> FILL OUT THE DATA TO GET YOUR OUTPUT </h2>
+
+            <div class="row rowclass">
+                <!--  col-md-4   -->
+                <div class="col-md-4">    
+                    <div class="form-group">
+                        <label for="nitro" class="labelclass"> N  <small>ratio of Nitrogen content in soil</small> </label>
+                        <input type="number" class="form-control" id="nitro" placeholder="Nitrogen percentage out of 100" required>
+                    </div>
+                </div>
+                
+                <!--  col-md-4   -->
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="phos" class="labelclass"> P <small>ratio of Phosphorous content in soil</small> </label>
+                        <input type="number" class="form-control" id="phos" placeholder="Phosphorous percentage out of 100" required>
+                    </div>
+                </div>
+    
+                <!--  col-md-4   -->
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="pota" class="labelclass"> K <small>ratio of Potassium content in soil</small> </label>
+                        <input type="number" class="form-control" id="pota" placeholder="Potassium percentage out of 100" required>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row rowclass">
+                <!--  col-md-6   -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="temp" class="labelclass"> Temperature </label>
+                        <input type="text" class="form-control" placeholder="Temperature in degree celsius" id="temp" required>
+                    </div>
+                </div>
+            
+                <!--  col-md-6   -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="humi" class="labelclass"> Humidity </label>
+                        <input type="text" class="form-control" placeholder="Relative humidity in percentage" id="humi" required>
+                    </div>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <!--  col-md-6   -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="ph" class="labelclass"> PH </label>
+                        <input type="text" class="form-control" placeholder="PH value of the soil" id="ph" required>
+                    </div> 
+                </div>
+            
+                <!--  col-md-6   -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="rain" class="labelclass"> Rainfall </label>
+                        <input type="text" class="form-control" id="rain" placeholder="Rainfall in mm" required>
+                    </div>
+                </div>
+            </div>
+
+
+            
+        <center><button type="submit" class="btn btn-primary" id="sbt">Submit</button></center>
+        </form>
+
+    </div>
+
+    <center><h3> <span style="font-weight: 900; color: rgb(0, 0, 0); background-color: lightblue;">{{prediction_text}} </span> </h3></center>
+
+</body>
+</html>
